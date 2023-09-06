@@ -4,9 +4,15 @@
 <robot name="mybot1" xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:include filename="$(find final_robot)/urdf/mybot.gazebo" />
 
-<!-- +++++++++++++++++++++++Robot Definition+++++++++++++++++++++++++ /-->
 
 <!--Chassis & Caster Link /-->
+<link name="base_footprint" />
+
+<joint name="base_footprint_joint" type="fixed">
+  <parent link="base_footprint" />
+  <child link="chassis" />
+</joint>
+
    <link name='chassis'>
 
    <visual name='chassis_visual'>
@@ -104,12 +110,6 @@
 
 </joint>
 
-<!-- ++++++++++++++++Left wheel+++++++++++++++++++++++++++++++ /-->
-
-
-
-
-
 <!--left wheel Link /-->
 
  <link name="left_wheel">
@@ -154,7 +154,6 @@
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
-<!-- +++++++++++++++++++ Right Wheel +++++++++++++++++++++++++++++++++ /-->
 
 <!--Right Wheel link /-->
 
@@ -212,7 +211,6 @@
 
   </joint>
 
-<!-- ++++++++++++++++++  Kinect  +++++++++++++++++++++++++++++ /-->
 <!--Kinect  Link /-->
 
 <link name="camera_link">

@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="world" default="empty" />
+
   <arg name="paused" default="false" />
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
   <arg name="debug" default="false" />
   <arg name="world_file" default="$(find final_robot)worlds/mybot_world" />
+  <arg name="rvizconfig" default="$(find final_robot)/rviz/final_robot_conf.rviz" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="debug" value="$(arg debug)" />
@@ -28,12 +29,12 @@
   </node>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> 
-
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
    <include file="$(find final_robot)/launch/gmapping.launch"/>
    <!--include file="$(find final_robot)/launch/robot_amcl.launch"/>
-   <include file="$(find final_robot)/launch/robot_move_base.launch"/-->
+   <include file="$(find final_robot)/launch/robot_move_base.launch"/>
 
-     <node name="rviz" pkg="rviz" type="rviz"/>  
+     <node name="rviz" pkg="rviz" type="rviz"/-->  
 
 </launch>
