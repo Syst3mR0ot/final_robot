@@ -32,9 +32,9 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
    <include file="$(find final_robot)/launch/gmapping.launch"/>
-   <!--include file="$(find final_robot)/launch/robot_amcl.launch"/>
+   <include file="$(find final_robot)/launch/robot_amcl.launch"/>
    <include file="$(find final_robot)/launch/robot_move_base.launch"/>
 
-     <node name="rviz" pkg="rviz" type="rviz"/-->  
+     <!--node name="rviz" pkg="rviz" type="rviz"/-->  
 
 </launch>
